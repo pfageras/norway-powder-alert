@@ -75,6 +75,7 @@ function createAlertCard(alert) {
     const snow10Day = alert.snowfallCm10Day.toFixed(1);
 
     card.innerHTML = `
+        ${resort.imageUrl ? `<div class="resort-image" style="background-image: url('${resort.imageUrl}');"></div>` : ''}
         <div class="resort-header">
             <div class="resort-name">${resort.name}</div>
             ${alert.isPowderDay ? '<div class="powder-badge">POWDER DAY!</div>' : ''}
