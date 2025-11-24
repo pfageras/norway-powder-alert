@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+    background: #2196F3;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #0b7dda;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.last-update {
+    color: white;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 40px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.error {
+    background: rgba(244, 67, 54, 0.9);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.alerts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.alert-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.alert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+.alert-card.powder-day {
+    border: 3px solid #4CAF50;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+.resort-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.resort-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.powder-badge {
+    background: #4CAF50;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.resort-info {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.snow-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.stat {
+    text-align: center;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.powder-day .stat {
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+.powder-day .stat-value {
+    color: #4CAF50;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.stat-small .stat-value {
+    font-size: 1.5rem;
+}
+
+.long-term-stats {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.powder-day .long-term-stats {
+    background: rgba(76, 175, 80, 0.08);
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-row-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.stat-row-value {
+    color: #2196F3;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.powder-day .stat-row-value {
+    color: #4CAF50;
+}
+
+.daily-breakdown {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #eee;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.daily-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 70px 120px;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    align-items: center;
+}
+
+.daily-item.good-snow {
+    background: linear-gradient(90deg, rgba(76, 175, 80, 0.15) 0%, rgba(76, 175, 80, 0.05) 100%);
+    border-left: 3px solid #4CAF50;
+}
+
+.daily-date {
+    text-align: left;
+}
+
+.day-name {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.date-str {
+    color: #666;
+    font-size: 0.75rem;
+}
+
+.daily-snow {
+    font-weight: bold;
+    color: #2196F3;
+    font-size: 1rem;
+}
+
+.daily-item.good-snow .daily-snow {
+    color: #4CAF50;
+}
+
+.daily-temp {
+    color: #666;
+    text-align: center;
+}
+
+.daily-conditions {
+    color: #999;
+    font-size: 0.8rem;
+    text-align: right;
+}
+
+.no-data {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    font-style: italic;
+}
+
+.forecast-preview {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #eee;
+}
+
+.forecast-title {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.forecast-hours {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 5px 0;
+}
+
+.forecast-hour {
+    min-width: 60px;
+    text-align: center;
+    padding: 8px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    font-size: 0.75rem;
+}
+
+.forecast-time {
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.forecast-snow {
+    font-weight: bold;
+    color: #2196F3;
+}
+
+.forecast-temp {
+    color: #999;
+    font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .alerts-container {
+        grid-template-columns: 1fr;
+    }
+
+    .controls {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .snow-stats {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 8px;
+    }
+
+    .stat {
+        padding: 10px;
+    }
+
+    .stat-small .stat-value {
+        font-size: 1.2rem;
+    }
+
+    .daily-item {
+        grid-template-columns: 70px 1fr 60px;
+        gap: 8px;
+        font-size: 0.8rem;
+    }
+
+    .daily-conditions {
+        display: none;
+    }
+}
