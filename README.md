@@ -18,7 +18,7 @@ A real-time powder conditions dashboard for Norwegian ski resorts. Get instant a
 - **Backend**: ASP.NET Core 8.0 Web API (C#)
 - **Frontend**: Vanilla HTML/CSS/JavaScript
 - **Weather API**: met.no LocationForecast API
-- **Deployment**: Docker & Docker Compose
+- **Deployment**: Docker & Docker Compose, Fly.io
 
 ## Getting Started
 
@@ -172,6 +172,34 @@ docker-compose up -d
 ```bash
 docker-compose down
 ```
+
+## Cloud Deployment
+
+### Deploy to Fly.io (Recommended)
+
+The app is configured for easy deployment to Fly.io with automatic GitHub Actions CI/CD.
+
+**Quick Start:**
+```bash
+# Install Fly.io CLI
+curl -L https://fly.io/install.sh | sh
+
+# Login
+flyctl auth login
+
+# Deploy
+flyctl launch
+```
+
+For detailed deployment instructions, including:
+- Setting up automatic GitHub deployments
+- Custom domain configuration
+- Monitoring and scaling
+- Cost optimization tips
+
+See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for the complete guide.
+
+**Live Demo:** Once deployed, your app will be available at `https://your-app-name.fly.dev`
 
 ## Development
 
