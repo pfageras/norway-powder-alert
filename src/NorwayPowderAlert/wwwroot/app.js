@@ -61,6 +61,17 @@ function renderAlerts(alerts) {
         const card = createAlertCard(alert);
         container.appendChild(card);
     });
+
+    // Add click handlers for collapsible sections
+    document.querySelectorAll('.section-title').forEach(title => {
+        title.addEventListener('click', function() {
+            this.classList.toggle('collapsed');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('daily-breakdown-content')) {
+                content.classList.toggle('hidden');
+            }
+        });
+    });
 }
 
 function createAlertCard(alert) {
@@ -108,7 +119,7 @@ function createAlertCard(alert) {
             </div>
         </div>
         <div class="daily-breakdown">
-            <div class="section-title">10-Day Forecast</div>
+            <div class="section-title collapsed">10-Day Forecast</div>
             ${renderDailyBreakdown(alert.dailyBreakdown)}
         </div>
         <div class="forecast-preview">
@@ -127,7 +138,7 @@ function renderDailyBreakdown(dailyBreakdown) {
         return '<div class="no-data">No daily forecast available</div>';
     }
 
-    return dailyBreakdown.map(day => {
+    const content = dailyBreakdown.map(day => {
         const date = new Date(day.date);
         const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
         const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
@@ -150,6 +161,8 @@ function renderDailyBreakdown(dailyBreakdown) {
             </div>
         `;
     }).join('');
+
+    return `<div class="daily-breakdown-content hidden">${content}</div>`;
 }
 
 function renderForecastPreview(forecast) {

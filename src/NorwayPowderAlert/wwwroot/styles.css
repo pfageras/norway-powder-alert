@@ -9,7 +9,7 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #333;
     min-height: 100vh;
-    padding: 20px;
+    padding: 15px;
 }
 
 .container {
@@ -20,34 +20,34 @@ body {
 header {
     text-align: center;
     color: white;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     opacity: 0.9;
 }
 
 .controls {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 
 button {
-    padding: 12px 24px;
+    padding: 8px 16px;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 600;
@@ -97,7 +97,7 @@ button {
 .alerts-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 20px;
+    gap: 15px;
 }
 
 .alert-card {
@@ -121,7 +121,7 @@ button {
 
 .resort-image {
     width: 100%;
-    height: 200px;
+    height: 150px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -139,7 +139,7 @@ button {
 }
 
 .resort-header {
-    padding: 20px 20px 15px 20px;
+    padding: 12px 15px 10px 15px;
     margin: 0;
     display: flex;
     justify-content: space-between;
@@ -148,7 +148,7 @@ button {
 }
 
 .resort-name {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #333;
 }
@@ -164,23 +164,23 @@ button {
 
 .resort-info {
     color: #666;
-    font-size: 0.9rem;
-    padding: 0 20px 15px 20px;
+    font-size: 0.85rem;
+    padding: 0 15px 10px 15px;
 }
 
 .snow-stats {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 8px;
     margin: 0;
-    padding: 0 20px 15px 20px;
+    padding: 0 15px 12px 15px;
 }
 
 .stat {
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     background: #f5f5f5;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .powder-day .stat {
@@ -188,7 +188,7 @@ button {
 }
 
 .stat-value {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #2196F3;
 }
@@ -204,14 +204,14 @@ button {
 }
 
 .stat-small .stat-value {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .long-term-stats {
-    margin: 0 20px 15px 20px;
-    padding: 15px;
+    margin: 0 15px 12px 15px;
+    padding: 12px;
     background: #f9f9f9;
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .powder-day .long-term-stats {
@@ -221,7 +221,7 @@ button {
 .stat-row {
     display: flex;
     justify-content: space-between;
-    padding: 8px 0;
+    padding: 6px 0;
     border-bottom: 1px solid #eee;
 }
 
@@ -246,26 +246,55 @@ button {
 
 .daily-breakdown {
     margin: 0;
-    padding: 15px 20px;
+    padding: 12px 15px;
     border-top: 2px solid #eee;
 }
 
 .section-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #333;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title:hover {
+    color: #2196F3;
+}
+
+.section-title::before {
+    content: '▼';
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.section-title.collapsed::before {
+    transform: rotate(-90deg);
+}
+
+.daily-breakdown-content {
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.daily-breakdown-content.hidden {
+    max-height: 0;
 }
 
 .daily-item {
     display: grid;
     grid-template-columns: 80px 1fr 70px 120px;
-    gap: 10px;
-    padding: 10px;
-    margin-bottom: 8px;
+    gap: 8px;
+    padding: 8px;
+    margin-bottom: 6px;
     background: #f9f9f9;
     border-radius: 6px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     align-items: center;
 }
 
@@ -319,14 +348,14 @@ button {
 
 .forecast-preview {
     margin: 0;
-    padding: 15px 20px 20px 20px;
+    padding: 12px 15px 15px 15px;
     border-top: 2px solid #eee;
 }
 
 .forecast-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #666;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-weight: 600;
 }
 
