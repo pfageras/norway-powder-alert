@@ -93,6 +93,17 @@ function createAlertCard(alert) {
         </div>
         <div class="resort-info">
             ${resort.region} • ${resort.elevation}m elevation
+            ${resort.webcamUrl ? `<a href="${resort.webcamUrl}" target="_blank" class="webcam-link">📹 Webcam</a>` : ''}
+        </div>
+        <div class="snow-depth-section">
+            <div class="depth-item">
+                <div class="depth-label">Snow Depth</div>
+                <div class="depth-value">${alert.currentSnowDepthCm} cm</div>
+            </div>
+            <div class="depth-item">
+                <div class="depth-label">Season Total</div>
+                <div class="depth-value">${alert.seasonalSnowfallCm} cm</div>
+            </div>
         </div>
         <div class="snow-stats">
             <div class="stat stat-small">

@@ -10,6 +10,8 @@ builder.Services.AddSwaggerGen();
 // Register our custom services
 builder.Services.AddHttpClient<WeatherService>();
 builder.Services.AddScoped<WeatherService>();
+builder.Services.AddHttpClient<SnowDepthService>();
+builder.Services.AddScoped<SnowDepthService>();
 builder.Services.AddSingleton<ResortService>();
 builder.Services.AddScoped<PowderAlertService>();
 

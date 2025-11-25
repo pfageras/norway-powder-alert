@@ -8,4 +8,5 @@ public class SkiResort
     public string Region { get; set; } = string.Empty;
     public int Elevation { get; set; } // meters
     public string ImageUrl { get; set; } = string.Empty;
+    public string WebcamUrl { get; set; } = string.Empty;
 }

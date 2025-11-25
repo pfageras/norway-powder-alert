@@ -6,12 +6,14 @@ public class PowderAlertService
 {
     private readonly WeatherService _weatherService;
     private readonly ResortService _resortService;
+    private readonly SnowDepthService _snowDepthService;
     private readonly double _powderThresholdCm = 20.0; // 20cm+ in 24h
 
-    public PowderAlertService(WeatherService weatherService, ResortService resortService)
+    public PowderAlertService(WeatherService weatherService, ResortService resortService, SnowDepthService snowDepthService)
     {
         _weatherService = weatherService;
         _resortService = resortService;
+        _snowDepthService = snowDepthService;
     }
 
     public async Task<List<PowderAlert>> GetAllPowderAlertsAsync()
@@ -40,6 +42,10 @@ public class PowderAlertService
         var snowfall10Day = _weatherService.CalculateSnowfall10Day(forecasts, now);
         var dailyBreakdown = _weatherService.GetDailyBreakdown(forecasts, now, 10);
 
+        // Get real snow depth data from Frost API
+        var currentSnowDepth = await _snowDepthService.GetSnowDepthAsync(resort.Latitude, resort.Longitude);
+        var seasonalSnowfall = _snowDepthService.EstimateSeasonalSnowfall(resort.Elevation);
+
         return new PowderAlert
         {
             Resort = resort,
@@ -48,6 +54,8 @@ public class PowderAlertService
             SnowfallCm3Day = Math.Round(snowfall3Day, 1),
             SnowfallCm7Day = Math.Round(snowfall7Day, 1),
             SnowfallCm10Day = Math.Round(snowfall10Day, 1),
+            CurrentSnowDepthCm = currentSnowDepth,
+            SeasonalSnowfallCm = seasonalSnowfall,
             ForecastTime = now,
             IsPowderDay = snowfall24h >= _powderThresholdCm,
             Forecast = forecasts.Take(48).ToList(), // Next 48 hours of detailed forecast
