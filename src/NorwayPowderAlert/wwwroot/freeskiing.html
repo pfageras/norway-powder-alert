@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freeskiing Areas - Norway Powder Alert</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⛷️ Freeskiing Areas in Norway</h1>
+            <p class="subtitle">Epic backcountry and off-piste terrain</p>
+        </header>
+
+        <nav class="page-nav">
+            <a href="index.html" class="nav-link">Snow Reports</a>
+            <a href="freeskiing.html" class="nav-link active">Freeskiing Areas</a>
+        </nav>
+
+        <div class="controls">
+            <button id="allAreasBtn" class="btn-primary active">All Areas</button>
+            <button id="intermediateBtn" class="btn-secondary">Intermediate</button>
+            <button id="advancedBtn" class="btn-secondary">Advanced</button>
+            <button id="expertBtn" class="btn-secondary">Expert</button>
+        </div>
+
+        <div id="loading" class="loading">Loading freeskiing areas...</div>
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="areasContainer" class="areas-container"></div>
+    </div>
+
+    <script src="freeskiing.js"></script>
+</body>
+</html>

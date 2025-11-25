@@ -13,6 +13,7 @@ builder.Services.AddScoped<WeatherService>();
 builder.Services.AddHttpClient<SnowDepthService>();
 builder.Services.AddScoped<SnowDepthService>();
 builder.Services.AddSingleton<ResortService>();
+builder.Services.AddSingleton<FreeskiingService>();
 builder.Services.AddScoped<PowderAlertService>();
 
 // Configure CORS for frontend
