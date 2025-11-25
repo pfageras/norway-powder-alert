@@ -17,7 +17,7 @@ public class FreeskiingService
             Difficulty = "Expert",
             Terrain = "Couloirs, Steep faces, Powder bowls",
             Access = "Lift-accessed + short hike",
-            ImageUrl = "https://images.unsplash.com/photo-1551524164-687a55dd1126?w=800&h=600&fit=crop",
+            ImageUrl = "https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "February - April"
         },
@@ -32,7 +32,7 @@ public class FreeskiingService
             Difficulty = "Advanced",
             Terrain = "Steep bowls, Ridge lines, Powder fields",
             Access = "Lift-accessed",
-            ImageUrl = "https://images.unsplash.com/photo-1513807016779-d51c0c026263?w=800&h=600&fit=crop",
+            ImageUrl = "https://images.unsplash.com/photo-1551524164-687a55dd1126?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "March - May"
         },
@@ -43,11 +43,11 @@ public class FreeskiingService
             Longitude = 6.9500,
             Region = "Møre og Romsdal",
             Elevation = 1200,
-            Description = "World-class freeriding with ocean views. Host of the Freeride World Tour.",
+            Description = "World-class freeriding with ocean views. Famous powder paradise in the Sunnmøre Alps.",
             Difficulty = "Expert",
             Terrain = "Steep couloirs, Open faces, Natural features",
             Access = "Lift-accessed",
-            ImageUrl = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+            ImageUrl = "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "February - May"
         },
@@ -62,7 +62,7 @@ public class FreeskiingService
             Difficulty = "Intermediate",
             Terrain = "Tree runs, Powder bowls, Gladed terrain",
             Access = "Lift-accessed",
-            ImageUrl = "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&h=600&fit=crop",
+            ImageUrl = "https://images.unsplash.com/photo-1544986581-efac024faf62?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "December - April"
         },
@@ -77,7 +77,7 @@ public class FreeskiingService
             Difficulty = "Expert",
             Terrain = "Couloirs, Alpine faces, Glaciers",
             Access = "Ski touring",
-            ImageUrl = "https://images.unsplash.com/photo-1551524164-687a55dd1126?w=800&h=600&fit=crop&brightness=0.9",
+            ImageUrl = "https://images.unsplash.com/photo-1545572695-7f27679e47c2?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "March - May"
         },
@@ -92,7 +92,7 @@ public class FreeskiingService
             Difficulty = "Expert",
             Terrain = "Big mountain, Steep faces, Exposed ridges",
             Access = "Ski touring + approach",
-            ImageUrl = "https://images.unsplash.com/photo-1551524164-687a55dd1126?w=800&h=600&fit=crop&sat=-20",
+            ImageUrl = "https://images.unsplash.com/photo-1548704888-e2e6cc6c81ed?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "April - June"
         },
@@ -107,7 +107,7 @@ public class FreeskiingService
             Difficulty = "Intermediate",
             Terrain = "Powder bowls, Tree skiing, Alpine terrain",
             Access = "Lift-accessed",
-            ImageUrl = "https://images.unsplash.com/photo-1548704888-e2e6cc6c81ed?w=800&h=600&fit=crop",
+            ImageUrl = "https://images.unsplash.com/photo-1565992441121-4367c2967103?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "January - April"
         },
@@ -137,7 +137,7 @@ public class FreeskiingService
             Difficulty = "Expert",
             Terrain = "Glaciers, Alpine bowls, High mountain",
             Access = "Ski touring",
-            ImageUrl = "https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=800&h=600&fit=crop&brightness=1.1",
+            ImageUrl = "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "April - June"
         },
@@ -152,7 +152,7 @@ public class FreeskiingService
             Difficulty = "Intermediate",
             Terrain = "Tree runs, Open bowls, Groomers access",
             Access = "Lift-accessed",
-            ImageUrl = "https://images.unsplash.com/photo-1551524164-687a55dd1126?w=800&h=600&fit=crop&sat=-10",
+            ImageUrl = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "January - March"
         }
