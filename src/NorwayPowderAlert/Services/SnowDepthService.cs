@@ -1,3 +1,4 @@
+using System.Text;
 using System.Text.Json;
 using NorwayPowderAlert.Models;
 
@@ -7,18 +8,27 @@ public class SnowDepthService
 {
     private readonly HttpClient _httpClient;
     private readonly ILogger<SnowDepthService> _logger;
+    private readonly IConfiguration _configuration;
     private const string FrostApiBase = "https://frost.met.no/observations/v0.jsonld";
 
-    public SnowDepthService(HttpClient httpClient, ILogger<SnowDepthService> logger)
+    public SnowDepthService(HttpClient httpClient, ILogger<SnowDepthService> logger, IConfiguration configuration)
     {
         _httpClient = httpClient;
         _logger = logger;
+        _configuration = configuration;
     }
 
     public async Task<double> GetSnowDepthAsync(double latitude, double longitude)
     {
         try
         {
+            var clientId = _configuration["FrostApi:ClientId"];
+            if (string.IsNullOrEmpty(clientId))
+            {
+                _logger.LogWarning("Frost API client ID not configured");
+                return 0;
+            }
+
             // Find nearest weather station with snow depth data
             var now = DateTime.UtcNow;
             var yesterday = now.AddDays(-1);
@@ -31,7 +41,13 @@ public class SnowDepthService
                       $"referencetime={yesterday:yyyy-MM-dd}/{now:yyyy-MM-dd}&" +
                       $"elements=surface_snow_thickness";
 
-            var response = await _httpClient.GetAsync(url);
+            // Set up Basic Authentication with client ID
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            var authBytes = Encoding.ASCII.GetBytes($"{clientId}:");
+            var authHeader = Convert.ToBase64String(authBytes);
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", authHeader);
+
+            var response = await _httpClient.SendAsync(request);
 
             if (!response.IsSuccessStatusCode)
             {
