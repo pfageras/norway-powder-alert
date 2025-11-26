@@ -42,8 +42,8 @@ public class PowderAlertService
         var snowfall10Day = _weatherService.CalculateSnowfall10Day(forecasts, now);
         var dailyBreakdown = _weatherService.GetDailyBreakdown(forecasts, now, 10);
 
-        // Get estimated snow depth based on elevation and season
-        var currentSnowDepth = await _snowDepthService.GetSnowDepthAsync(resort.Latitude, resort.Longitude, resort.Elevation);
+        // Get real snow depth data from Frost API
+        var currentSnowDepth = await _snowDepthService.GetSnowDepthAsync(resort.Latitude, resort.Longitude);
         var seasonalSnowfall = _snowDepthService.EstimateSeasonalSnowfall(resort.Elevation);
 
         return new PowderAlert

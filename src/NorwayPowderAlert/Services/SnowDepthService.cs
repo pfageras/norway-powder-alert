@@ -15,45 +15,57 @@ public class SnowDepthService
         _logger = logger;
     }
 
-    public async Task<double> GetSnowDepthAsync(double latitude, double longitude, int elevation)
+    public async Task<double> GetSnowDepthAsync(double latitude, double longitude)
     {
-        // Note: Frost API requires authentication (client ID) which is not configured
-        // For now, we estimate snow depth based on elevation and time of season
-        // TODO: Configure Frost API authentication for real snow depth data
-
         try
         {
-            // Estimate base snow depth by elevation
-            var baseDepth = elevation switch
-            {
-                >= 1400 => 100.0,  // High elevation resorts
-                >= 1200 => 85.0,
-                >= 1000 => 70.0,
-                >= 800 => 55.0,
-                _ => 40.0          // Lower elevation resorts
-            };
-
-            // Add seasonal variation (mid-winter has most snow)
+            // Find nearest weather station with snow depth data
             var now = DateTime.UtcNow;
-            var monthFactor = now.Month switch
+            var yesterday = now.AddDays(-1);
+
+            // Frost API query for snow depth (surface_snow_thickness)
+            // We search for stations near the coordinates
+            var url = $"{FrostApiBase}?" +
+                      $"nearestmaxcount=1&" +
+                      $"geometry=nearest(POINT({longitude:F4} {latitude:F4}))&" +
+                      $"referencetime={yesterday:yyyy-MM-dd}/{now:yyyy-MM-dd}&" +
+                      $"elements=surface_snow_thickness";
+
+            var response = await _httpClient.GetAsync(url);
+
+            if (!response.IsSuccessStatusCode)
             {
-                12 or 1 => 0.8,    // Early season
-                2 or 3 => 1.0,     // Peak season
-                4 => 0.7,          // Late season
-                _ => 0.5           // Off season
-            };
+                _logger.LogWarning("Failed to fetch snow depth data: {StatusCode}", response.StatusCode);
+                return 0; // Return 0 if data not available
+            }
 
-            var estimatedDepth = baseDepth * monthFactor;
+            var json = await response.Content.ReadAsStringAsync();
+            var data = JsonDocument.Parse(json);
 
-            _logger.LogInformation("Estimated snow depth for elevation {Elevation}m: {Depth}cm",
-                elevation, Math.Round(estimatedDepth, 0));
+            // Parse the response to get the latest snow depth observation
+            if (data.RootElement.TryGetProperty("data", out var dataArray))
+            {
+                foreach (var observation in dataArray.EnumerateArray())
+                {
+                    if (observation.TryGetProperty("observations", out var observations))
+                    {
+                        foreach (var obs in observations.EnumerateArray())
+                        {
+                            if (obs.TryGetProperty("value", out var value))
+                            {
+                                var depthMeters = value.GetDouble();
+                                return Math.Round(depthMeters * 100, 0); // Convert meters to cm
+                            }
+                        }
+                    }
+                }
+            }
 
-            return Math.Round(estimatedDepth, 0);
+            return 0; // No data found
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error estimating snow depth for lat={Lat}, lon={Lon}, elevation={Elevation}",
-                latitude, longitude, elevation);
+            _logger.LogError(ex, "Error fetching snow depth data for lat={Lat}, lon={Lon}", latitude, longitude);
             return 0;
         }
     }
