@@ -17,7 +17,7 @@ public class FreeskiingService
             Difficulty = "Expert",
             Terrain = "Couloirs, Steep faces, Powder bowls",
             Access = "Lift-accessed + short hike",
-            ImageUrl = "https://www.istockphoto.com/photo/night-ski-on-hemsedal-ski-center-in-norway-gm1476276013-505529841",
+            ImageUrl = "https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "February - April"
         },
@@ -32,7 +32,7 @@ public class FreeskiingService
             Difficulty = "Advanced",
             Terrain = "Steep bowls, Ridge lines, Powder fields",
             Access = "Lift-accessed",
-            ImageUrl = "https://www.gettyimages.com/detail/photo/backcountry-skiing-under-the-midnight-sun-on-royalty-free-image/1226242628",
+            ImageUrl = "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "March - May"
         },
@@ -47,7 +47,7 @@ public class FreeskiingService
             Difficulty = "Expert",
             Terrain = "Steep couloirs, Open faces, Natural features",
             Access = "Lift-accessed",
-            ImageUrl = "https://www.istockphoto.com/photos/deep-powder-skiing",
+            ImageUrl = "https://images.unsplash.com/photo-1551524164-687a55dd1126?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "February - May"
         },
@@ -62,7 +62,7 @@ public class FreeskiingService
             Difficulty = "Intermediate",
             Terrain = "Tree runs, Powder bowls, Gladed terrain",
             Access = "Lift-accessed",
-            ImageUrl = "https://www.gettyimages.com/photos/myrkdalen",
+            ImageUrl = "https://images.unsplash.com/photo-1551582045-6ec9c11d8697?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "December - April"
         },
@@ -77,7 +77,7 @@ public class FreeskiingService
             Difficulty = "Expert",
             Terrain = "Couloirs, Alpine faces, Glaciers",
             Access = "Ski touring",
-            ImageUrl = "https://www.istockphoto.com/photos/lyngen-alps",
+            ImageUrl = "https://images.unsplash.com/photo-1483664852095-d6cc6870702d?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "March - May"
         },
@@ -92,7 +92,7 @@ public class FreeskiingService
             Difficulty = "Expert",
             Terrain = "Big mountain, Steep faces, Exposed ridges",
             Access = "Ski touring + approach",
-            ImageUrl = "https://www.gettyimages.com/photos/romsdalen",
+            ImageUrl = "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "April - June"
         },
@@ -107,7 +107,7 @@ public class FreeskiingService
             Difficulty = "Intermediate",
             Terrain = "Powder bowls, Tree skiing, Alpine terrain",
             Access = "Lift-accessed",
-            ImageUrl = "https://www.istockphoto.com/photos/skiing-norway",
+            ImageUrl = "https://images.unsplash.com/photo-1551524164-687a55dd1126?w=800&h=600&fit=crop&sat=-10",
             AvalancheGearRequired = true,
             BestMonths = "January - April"
         },
@@ -122,7 +122,7 @@ public class FreeskiingService
             Difficulty = "Advanced",
             Terrain = "Natural jumps, Tree runs, Steep sections",
             Access = "Lift-accessed",
-            ImageUrl = "https://www.istockphoto.com/photos/voss-norway",
+            ImageUrl = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "January - April"
         },
@@ -137,7 +137,7 @@ public class FreeskiingService
             Difficulty = "Expert",
             Terrain = "Glaciers, Alpine bowls, High mountain",
             Access = "Ski touring",
-            ImageUrl = "https://www.istockphoto.com/photos/jotunheimen-national-park",
+            ImageUrl = "https://images.unsplash.com/photo-1548704888-e2e6cc6c81ed?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "April - June"
         },
@@ -152,7 +152,7 @@ public class FreeskiingService
             Difficulty = "Intermediate",
             Terrain = "Tree runs, Open bowls, Groomers access",
             Access = "Lift-accessed",
-            ImageUrl = "https://www.gettyimages.com/photos/ski-world-cup-kvitfjell",
+            ImageUrl = "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
             AvalancheGearRequired = true,
             BestMonths = "January - March"
         }
