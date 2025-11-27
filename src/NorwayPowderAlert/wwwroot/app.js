@@ -1,8 +1,11 @@
 const API_BASE = '/api/powder';
 let showPowderOnly = false;
+let resortMap = null;
+let resortMarkers = [];
 
 // Initialize app when page loads
 document.addEventListener('DOMContentLoaded', () => {
+    initResortMap();
     loadAlerts();
 
     document.getElementById('refreshBtn').addEventListener('click', () => {
@@ -16,6 +19,61 @@ document.addEventListener('DOMContentLoaded', () => {
         loadAlerts();
     });
 });
+
+function initResortMap() {
+    // Center map on Norway
+    resortMap = L.map('resortMap').setView([61.5, 9.0], 5);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(resortMap);
+}
+
+function updateResortMap(alerts) {
+    // Clear existing markers
+    resortMarkers.forEach(marker => resortMap.removeLayer(marker));
+    resortMarkers = [];
+
+    // Add markers for each resort
+    alerts.forEach(alert => {
+        const resort = alert.resort;
+        const isPowderDay = alert.isPowderDay;
+        const markerColor = isPowderDay ? '#4CAF50' : '#2196F3';
+
+        const marker = L.marker([resort.latitude, resort.longitude], {
+            icon: L.divIcon({
+                className: 'custom-marker',
+                html: `<div style="background-color: ${markerColor}; width: ${isPowderDay ? 35 : 25}px; height: ${isPowderDay ? 35 : 25}px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3); ${isPowderDay ? 'animation: pulse 2s infinite;' : ''}"></div>`,
+                iconSize: [isPowderDay ? 35 : 25, isPowderDay ? 35 : 25],
+                iconAnchor: [isPowderDay ? 17.5 : 12.5, isPowderDay ? 17.5 : 12.5]
+            })
+        }).addTo(resortMap);
+
+        // Add popup with resort info
+        marker.bindPopup(`
+            <div style="min-width: 250px;">
+                <h3 style="margin: 0 0 8px 0; color: #333;">${resort.name}</h3>
+                ${isPowderDay ? '<p style="margin: 0 0 8px 0; color: #4CAF50; font-weight: bold;">🎿 POWDER DAY!</p>' : ''}
+                <p style="margin: 0 0 5px 0;"><strong>24h Snow:</strong> ${alert.snowfallCm24h} cm</p>
+                <p style="margin: 0 0 5px 0;"><strong>48h Snow:</strong> ${alert.snowfallCm48h} cm</p>
+                <p style="margin: 0 0 5px 0;"><strong>7-day Total:</strong> ${alert.snowfallCm7Day} cm</p>
+                <p style="margin: 0 0 5px 0;"><strong>Snow Depth:</strong> ${alert.currentSnowDepthCm} cm</p>
+                <p style="margin: 0 0 5px 0;"><strong>Elevation:</strong> ${resort.elevation}m</p>
+                ${resort.webcamUrl ? `<p style="margin: 5px 0 0 0;"><a href="${resort.webcamUrl}" target="_blank" style="color: #2196F3;">View Webcam</a></p>` : ''}
+            </div>
+        `);
+
+        resortMarkers.push(marker);
+    });
+
+    // Fit map to show all markers if there are any
+    if (resortMarkers.length > 0) {
+        const group = L.featureGroup(resortMarkers);
+        resortMap.fitBounds(group.getBounds().pad(0.1));
+    }
+}
 
 async function loadAlerts() {
     const loadingEl = document.getElementById('loading');
@@ -43,6 +101,7 @@ async function loadAlerts() {
         }
 
         renderAlerts(alerts);
+        updateResortMap(alerts);
         updateLastUpdateTime();
 
     } catch (error) {

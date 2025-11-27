@@ -1,9 +1,12 @@
 const API_BASE = '/api/freeskiing';
 let currentFilter = 'all';
 let allAreas = [];
+let map = null;
+let markers = [];
 
 // Initialize app when page loads
 document.addEventListener('DOMContentLoaded', () => {
+    initMap();
     loadAreas();
 
     document.getElementById('allAreasBtn').addEventListener('click', () => {
@@ -22,6 +25,61 @@ document.addEventListener('DOMContentLoaded', () => {
         setFilter('Expert');
     });
 });
+
+function initMap() {
+    // Center map on Norway
+    map = L.map('map').setView([62.0, 10.0], 5);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(map);
+}
+
+function updateMapMarkers() {
+    // Clear existing markers
+    markers.forEach(marker => map.removeLayer(marker));
+    markers = [];
+
+    let areasToShow = allAreas;
+    if (currentFilter !== 'all') {
+        areasToShow = allAreas.filter(area => area.difficulty === currentFilter);
+    }
+
+    // Add markers for each area
+    areasToShow.forEach(area => {
+        const difficultyColor = getDifficultyColor(area.difficulty);
+
+        const marker = L.marker([area.latitude, area.longitude], {
+            icon: L.divIcon({
+                className: 'custom-marker',
+                html: `<div style="background-color: ${difficultyColor}; width: 30px; height: 30px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"></div>`,
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
+            })
+        }).addTo(map);
+
+        // Add popup with area info
+        marker.bindPopup(`
+            <div style="min-width: 200px;">
+                <h3 style="margin: 0 0 8px 0; color: #333;">${area.name}</h3>
+                <p style="margin: 0 0 5px 0; color: #666;"><strong>Region:</strong> ${area.region}</p>
+                <p style="margin: 0 0 5px 0; color: #666;"><strong>Difficulty:</strong> <span style="color: ${difficultyColor}; font-weight: bold;">${area.difficulty}</span></p>
+                <p style="margin: 0 0 5px 0; color: #666;"><strong>Elevation:</strong> ${area.elevation}m</p>
+                <p style="margin: 0; color: #555; font-size: 0.9em;">${area.description}</p>
+            </div>
+        `);
+
+        markers.push(marker);
+    });
+
+    // Fit map to show all markers if there are any
+    if (markers.length > 0) {
+        const group = L.featureGroup(markers);
+        map.fitBounds(group.getBounds().pad(0.1));
+    }
+}
 
 function setFilter(filter) {
     currentFilter = filter;
@@ -42,6 +100,7 @@ function setFilter(filter) {
     }
 
     renderAreas();
+    updateMapMarkers();
 }
 
 async function loadAreas() {
@@ -69,6 +128,7 @@ async function loadAreas() {
         }
 
         renderAreas();
+        updateMapMarkers();
 
     } catch (error) {
         loadingEl.style.display = 'none';
