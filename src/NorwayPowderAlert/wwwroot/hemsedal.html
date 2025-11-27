@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemsedal Guide - Norway Powder Alert</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏔️ Hemsedal Guide</h1>
+            <p class="subtitle">Your complete guide to Norway's premier ski destination</p>
+        </header>
+
+        <nav class="page-nav">
+            <a href="index.html" class="nav-link">Snow Reports</a>
+            <a href="freeskiing.html" class="nav-link">Freeskiing Areas</a>
+            <a href="hemsedal.html" class="nav-link active">Hemsedal Guide</a>
+        </nav>
+
+        <!-- Quick Info Section -->
+        <div class="hemsedal-intro">
+            <h2>About Hemsedal</h2>
+            <p>Known as the "Scandinavian Alps," Hemsedal is Norway's second-largest ski resort with 53 slopes, 21 lifts, and skiing from three mountain peaks. With over 20 restaurants, 5 ski rental shops, and extensive accommodations, Hemsedal offers a complete mountain experience.</p>
+        </div>
+
+        <!-- Webcams Section -->
+        <div class="section">
+            <h2 class="section-header">📹 Live Webcams</h2>
+            <div class="webcams-grid">
+                <div class="webcam-card">
+                    <h3>Hemsedal - Gravset skianlegg</h3>
+                    <a href="https://xn--vindn-qra.no/webkamera/viken/hemsedal" target="_blank" class="webcam-link-btn">View Live</a>
+                </div>
+                <div class="webcam-card">
+                    <h3>Hemsedal LIVE</h3>
+                    <a href="https://xn--vindn-qra.no/webkamera/viken/hemsedal" target="_blank" class="webcam-link-btn">View Live</a>
+                </div>
+                <div class="webcam-card">
+                    <h3>Hemsedal › sør-øst</h3>
+                    <a href="https://xn--vindn-qra.no/webkamera/viken/hemsedal" target="_blank" class="webcam-link-btn">View Live</a>
+                </div>
+                <div class="webcam-card">
+                    <h3>Solheisen Hemsedal LIVE</h3>
+                    <a href="https://xn--vindn-qra.no/webkamera/viken/hemsedal" target="_blank" class="webcam-link-btn">View Live</a>
+                </div>
+                <div class="webcam-card">
+                    <h3>R52 Hemsedalsfjellet (retning Gol)</h3>
+                    <a href="https://xn--vindn-qra.no/webkamera/viken/hemsedal" target="_blank" class="webcam-link-btn">View Live</a>
+                </div>
+                <div class="webcam-card">
+                    <h3>R52 Hemsedalsfjellet (retning Borlaug)</h3>
+                    <a href="https://xn--vindn-qra.no/webkamera/viken/hemsedal" target="_blank" class="webcam-link-btn">View Live</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dining Section -->
+        <div class="section">
+            <h2 class="section-header">🍽️ Dining & Restaurants</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Hemsedal Café</h3>
+                    <p class="location">📍 Town Center (Trøym)</p>
+                    <p>Established in 1989, serving locally sourced food. Famous for Kleberstein - grill your own meat and vegetables on a blazing hot stone.</p>
+                    <a href="https://hemsedalcafe.no/?lang=en" target="_blank" class="info-link">Visit Website</a>
+                </div>
+                <div class="info-card">
+                    <h3>Skigaarden</h3>
+                    <p class="location">📍 Ski Area</p>
+                    <p>Delightful bakery, Dagligstugu with delicious pizza, and Storstugu for fine dining with one of Norway's best Champagne menus.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Fjellkafeen</h3>
+                    <p class="location">📍 Top of Hollvin Express</p>
+                    <p>Start the day with breakfast before hitting the slopes. Homemade cakes and delicious lunch dishes.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Liv Bistro</h3>
+                    <p class="location">📍 Fyri Resort</p>
+                    <p>Main restaurant offering magical food and lovely surroundings. Reservations recommended.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Skarsnuten Restaurant</h3>
+                    <p class="location">📍 1000m elevation</p>
+                    <p>Magical views over the valley and ski resort. Fine dining experience at altitude.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Peppes Pizza</h3>
+                    <p class="location">📍 Town Center</p>
+                    <p>Family-friendly pizza place right by the Sentrumsløypa ski slope.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ski Rental Section -->
+        <div class="section">
+            <h2 class="section-header">⛷️ Ski Rental & Equipment</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>SkiStar Ski Rental</h3>
+                    <p class="location">📍 SkiStar Lodge Hemsedal Alpin</p>
+                    <p>Everything from beginner to expert level. Alpine, snowboard, telemark, randonee, and cross-country equipment. Professional workshop services.</p>
+                    <a href="https://www.skistar.com/en/ski-destinations/hemsedal/winter-in-hemsedal/services/skistarshops/" target="_blank" class="info-link">Book Online</a>
+                </div>
+                <div class="info-card">
+                    <h3>Tunet Sport</h3>
+                    <p class="location">📍 Hemsetunet, Town Center</p>
+                    <p>Independent shop selling hardware from Fischer, Nordica, Blizzard, Stöckli, and more. Equipment delivery to accommodation available.</p>
+                    <a href="https://hemsedal.com/en/tunet-sport" target="_blank" class="info-link">Learn More</a>
+                </div>
+                <div class="info-card">
+                    <h3>Hemsedal Ski Rental</h3>
+                    <p class="location">📍 Near Ski Area</p>
+                    <p>New up-to-date equipment including freeride, ski touring, and avalanche safety equipment. Expert ski tuning workshop.</p>
+                    <a href="https://www.hemsedalskirental.com/" target="_blank" class="info-link">Visit Website</a>
+                </div>
+                <div class="info-card">
+                    <h3>Hemsedal Ski Shop AS</h3>
+                    <p class="location">📍 50m from bus parking</p>
+                    <p>Best prices in Hemsedal with highest quality equipment. Modern ski service workshop.</p>
+                    <a href="https://www.hemsedalski.no/en" target="_blank" class="info-link">View Prices</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accommodations Section -->
+        <div class="section">
+            <h2 class="section-header">🏨 Accommodations</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Skarsnuten Mountain Resort & Spa</h3>
+                    <p class="location">📍 3,287 ft above sea level</p>
+                    <p>Located right at the edge with panoramic views. Nearest neighbor to Hemsedal ski center.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Fyri Resort</h3>
+                    <p class="location">📍 Midway: Town & Ski Area</p>
+                    <p>Multiple restaurants, fitness center, and easy access by ski, foot, or ski bus.</p>
+                </div>
+                <div class="info-card">
+                    <h3>SkiStar Lodge</h3>
+                    <p class="location">📍 Near Lifts & Slopes</p>
+                    <p>Extra comfort close to lifts, slopes, restaurants, and shopping. Cabins, apartments, and hotel rooms.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Hemsedal Høyfjellssenter</h3>
+                    <p class="location">📍 Lio Village</p>
+                    <p>Wooden cottages with equipped kitchens. 12 minutes' drive from ski resort.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Local Info Section -->
+        <div class="section">
+            <h2 class="section-header">ℹ️ Essential Information</h2>
+            <div class="local-info">
+                <div class="info-item-large">
+                    <h3>🎿 The Resort</h3>
+                    <ul>
+                        <li>53 slopes across 3 mountain peaks</li>
+                        <li>21 lifts (Totten 1,450m, Tinden 1,345m, Roni 1,225m)</li>
+                        <li>Known as "Scandinavian Alps"</li>
+                        <li>Norway's second-largest ski resort</li>
+                    </ul>
+                </div>
+                <div class="info-item-large">
+                    <h3>🚌 Getting Around</h3>
+                    <ul>
+                        <li>Free ski bus between town and resort</li>
+                        <li>Sentrumsløypa ski slope connects town to lifts</li>
+                        <li>Easy walking distance in town center</li>
+                        <li>Equipment delivery available</li>
+                    </ul>
+                </div>
+                <div class="info-item-large">
+                    <h3>🛍️ Shopping & Services</h3>
+                    <ul>
+                        <li>5 ski rental shops</li>
+                        <li>Multiple ski service workshops</li>
+                        <li>Town center shopping at Hemsetunet</li>
+                        <li>Cross-country trail cafes</li>
+                    </ul>
+                </div>
+                <div class="info-item-large">
+                    <h3>🍕 Dining Options</h3>
+                    <ul>
+                        <li>20+ restaurants and cafes</li>
+                        <li>Fine dining to casual pizza</li>
+                        <li>On-mountain restaurants</li>
+                        <li>Take-away options available</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+</html>
