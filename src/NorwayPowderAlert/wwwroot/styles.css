@@ -512,6 +512,36 @@ button {
     }
 }
 
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 107, 53, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 107, 53, 0.5), 0 0 40px rgba(247, 147, 30, 0.3);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes party {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-3deg);
+    }
+    75% {
+        transform: rotate(3deg);
+    }
+}
+
 /* Freeskiing Areas Styles */
 
 .areas-container {
@@ -687,36 +717,59 @@ button {
     }
 }
 
-/* Hemsedal Guide Page Styles */
+/* Hemsedal Guide Page Styles - Après-Ski Theme */
 .hemsedal-intro {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FDC830 100%);
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 16px rgba(255, 107, 53, 0.4);
+    border: 3px solid #FFD700;
+    position: relative;
+    overflow: hidden;
+    animation: glow 3s ease-in-out infinite;
+}
+
+.hemsedal-intro::before {
+    content: '🎉';
+    position: absolute;
+    font-size: 8rem;
+    opacity: 0.15;
+    right: -20px;
+    top: -20px;
+    animation: party 2s ease-in-out infinite;
 }
 
 .hemsedal-intro h2 {
-    color: #333;
-    margin-bottom: 12px;
-    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 2rem;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    font-weight: bold;
 }
 
 .hemsedal-intro p {
-    color: #555;
-    line-height: 1.6;
-    font-size: 1rem;
+    color: white;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .section {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .section-header {
     color: white;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    font-weight: bold;
+    background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
 }
 
 .webcams-grid {
@@ -726,45 +779,64 @@ button {
 }
 
 .webcam-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(102, 126, 234, 0.3);
     text-align: center;
     transition: all 0.3s ease;
+    border: 2px solid rgba(255,255,255,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.webcam-card::before {
+    content: '📹';
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.15;
+    right: -10px;
+    bottom: -10px;
 }
 
 .webcam-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(102, 126, 234, 0.4);
+    border-color: #FFD700;
 }
 
 .webcam-card h3 {
-    color: #333;
-    font-size: 1rem;
-    margin-bottom: 12px;
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
     min-height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .webcam-link-btn {
     display: inline-block;
-    padding: 8px 20px;
-    background: #2196F3;
-    color: white;
+    padding: 10px 25px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #333;
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.95rem;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .webcam-link-btn:hover {
-    background: #0b7dda;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #FFA500 0%, #FF6B35 100%);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(255, 165, 0, 0.5);
 }
 
 .info-grid {
@@ -774,51 +846,77 @@ button {
 }
 
 .info-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #FF6B35 0%, #F7931E 50%, #FDC830 100%);
 }
 
 .info-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    transform: translateY(-5px) rotate(1deg);
+    box-shadow: 0 12px 24px rgba(255, 107, 53, 0.3);
+    border-color: #FFD700;
 }
 
 .info-card h3 {
-    color: #2196F3;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    color: #FF6B35;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .info-card .location {
-    color: #666;
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-    font-weight: 600;
+    color: #F7931E;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    font-weight: bold;
+    background: rgba(247, 147, 30, 0.1);
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: inline-block;
 }
 
 .info-card p {
     color: #555;
-    line-height: 1.5;
-    font-size: 0.9rem;
-    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
 }
 
 .info-link {
     display: inline-block;
-    color: #2196F3;
+    color: white;
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    padding: 8px 20px;
+    border-radius: 20px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 0.9rem;
     margin-top: 8px;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(255, 107, 53, 0.3);
 }
 
 .info-link:hover {
-    color: #0b7dda;
-    text-decoration: underline;
+    background: linear-gradient(135deg, #FDC830 0%, #FFD700 100%);
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(253, 200, 48, 0.4);
+    text-decoration: none;
 }
 
 .local-info {
@@ -828,16 +926,39 @@ button {
 }
 
 .info-item-large {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #fff9f0 100%);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.info-item-large::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FDC830 100%);
+    border-radius: 16px;
+    z-index: -1;
+}
+
+.info-item-large:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 24px rgba(255, 107, 53, 0.3);
 }
 
 .info-item-large h3 {
-    color: #2196F3;
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+    color: #FF6B35;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .info-item-large ul {
@@ -847,11 +968,18 @@ button {
 }
 
 .info-item-large li {
-    color: #555;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 0.95rem;
-    line-height: 1.4;
+    color: #333;
+    padding: 10px 0 10px 25px;
+    border-bottom: 2px solid rgba(247, 147, 30, 0.2);
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.info-item-large li:hover {
+    background: rgba(255, 107, 53, 0.05);
+    padding-left: 30px;
 }
 
 .info-item-large li:last-child {
@@ -859,13 +987,12 @@ button {
 }
 
 .info-item-large li:before {
-    content: "•";
-    color: #2196F3;
-    font-weight: bold;
+    content: "🔥";
+    font-size: 1.2rem;
     display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-    margin-right: 0.5em;
+    width: 1.5em;
+    margin-left: -1.5em;
+    margin-right: 0.3em;
 }
 
 @media (max-width: 768px) {
